@@ -25,6 +25,13 @@ public class Main {
         System.out.println(Zestaw1.zadanie7e(468));
         System.out.println(Zestaw1.zadanie8(357));
         System.out.println(Zestaw1.zadanie8a(357));
+        System.out.println(Zestaw1.zadanie9(1, 2,4,6));
+        System.out.println(Zestaw1.zadanie10("Ble"));
+        Zestaw1.zadanie11(" ,.ole");
+        Zestaw1.zadanie12(5);
+        Zestaw1.zadanie13();
+        Zestaw1.zadanie14();
+        Zestaw1.zadanie15(100);
 
 
     }

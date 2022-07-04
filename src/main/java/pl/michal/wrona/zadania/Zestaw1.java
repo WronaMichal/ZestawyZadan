@@ -3,6 +3,7 @@ package pl.michal.wrona.zadania;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
+import java.awt.*;
 import java.util.*;
 
 import static java.lang.Math.round;
@@ -147,7 +148,7 @@ public class Zestaw1 {
             remainder = num % 2;
             num /= 2;
 
-            binaryNumber += remainder * Math.pow(10,i);
+            binaryNumber += remainder * Math.pow(10, i);
             i++;
         }
 
@@ -190,37 +191,38 @@ public class Zestaw1 {
         return hexadecimal;
     }
 
-    public static int zadanie7e(int hexadecimal){
-        int decimal = 0, i=0, remainder;
+    public static int zadanie7e(int hexadecimal) {
+        int decimal = 0, i = 0, remainder;
 
-        while(hexadecimal!=0){
-            remainder = hexadecimal %10;
-            hexadecimal /=10;
-            decimal += remainder*Math.pow(16,i);
+        while (hexadecimal != 0) {
+            remainder = hexadecimal % 10;
+            hexadecimal /= 10;
+            decimal += remainder * Math.pow(16, i);
             i++;
         }
         return decimal;
     }
 
-    public static int zadanie8(int num){
+    public static int zadanie8(int num) {
 
-        int sum =0;
+        int sum = 0;
 
-        while (num!=0){
-            sum+=num %10;
-            num/=10;
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
         }
         return sum;
 
     }
-    public static int zadanie8a(int num){
+
+    public static int zadanie8a(int num) {
         int sum;
 
-        for(sum=0; num!=0; num/=10){
-            sum+=num%10;
-            num/=10;
+        for (sum = 0; num != 0; num /= 10) {
+            sum += num % 10;
+            num /= 10;
 
-            if(sum>9){
+            if (sum > 9) {
                 continue;
             }
 
@@ -230,6 +232,101 @@ public class Zestaw1 {
 
 
     }
+
+    public static double zadanie9(int x1, int y1, int x2, int y2) {
+        return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+    }
+
+    public static String zadanie10(String word) {
+        char[] in = word.toCharArray();
+        int begin = 0;
+        int end = in.length - 1;
+        char temp;
+        while (end > begin) {
+            temp = in[begin];
+            in[begin] = in[end];
+            in[end] = temp;
+            end--;
+            begin++;
+        }
+        return new String(in);
+
+    }
+
+    // here colon (:) means to set c to each value of word.toCharArray()
+    public static void zadanie11(String word) {
+        int whiteSpace = 0, commas = 0, dots = 0;
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        for (char c : word.toCharArray()) {
+            if (c == ' ') {
+                whiteSpace++;
+            } else if (c == ',') {
+                commas++;
+            } else if (c == '.') {
+                dots++;
+            }
+
+
+        }
+        map.put("Whitespace", whiteSpace);
+        map.put("Commas", commas);
+        map.put("Dots", dots);
+        System.out.println(map);
+
+    }
+
+    public static void zadanie12(int num) {
+        int sum = 0, digit;
+        for (int i = 0; i <= 1000000; i++) {
+            digit = i % 10;
+            if (digit == num) {
+                sum += i;
+            } else {
+            }
+        }
+
+        System.out.println(sum);
+
+    }
+
+    public static void zadanie13() {
+        ArrayList<Integer> integers = new ArrayList<Integer>();
+        for (int i = 0; i <= 100; i++) {
+            if (i % 2 != 0) {
+                integers.add(i);
+
+            }
+
+        }
+
+        System.out.println(integers);
+    }
+
+    public static void zadanie14(){
+        ArrayList<Integer> integers = new ArrayList<Integer>();
+        for (int i = 0; i <= 100; i++) {
+            if (i % 3 == 0 || i % 5 == 0) {
+                integers.add(i);
+
+            }
+
+        }
+        System.out.println(integers);
+
+    }
+
+    public static void zadanie15(int num){
+        ArrayList<Integer> integers = new ArrayList<Integer>();
+        for(int i =2;i<num; i++){
+            if(i %num/2 ==0){
+                integers.add(i);
+            }
+
+        }
+
+        System.out.println(integers);
+    }
+
 
 }
 
