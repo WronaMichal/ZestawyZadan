@@ -17,7 +17,8 @@ public class ZestawString {
             System.out.print(word.charAt(i));
         }
     }
-
+//split("\\s") will split the string into string of array with separator as space or multiple spaces
+    // \\s is regular expresion used when in those patters when space is needed -> it is single whitespace character
     public static void zadanie26(String word){
         String words[] = word.split("\\s");
         String reverseWords ="";
@@ -41,7 +42,8 @@ public class ZestawString {
         }
         return result;
     }
-
+// Stringbuilder pozwala nam na zmianę zawartości tego samego Stringa. Stringa tego samego nie możemy zmienić.
+    // String builder nam to umożliwia
     public static void zadanie28(String word) {
         String result = "";
         int sum = 0;
@@ -92,5 +94,19 @@ public class ZestawString {
         }
         return temp == sum;
 
+    }
+
+    public static boolean zadanie30a(String word){
+        String clean = word.replaceAll("\\s+", "").toLowerCase();
+        int length = clean.length();
+        int forward = 0;
+        int backward = length - 1;
+        while (backward > forward) {
+            char forwardChar = clean.charAt(forward++);
+            char backwardChar = clean.charAt(backward--);
+            if (forwardChar != backwardChar)
+                return false;
+        }
+        return true;
     }
 }
