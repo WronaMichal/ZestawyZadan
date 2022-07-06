@@ -32,6 +32,7 @@ public class Main {
         Zestaw1.zadanie13();
         Zestaw1.zadanie14();
         Zestaw1.zadanie15(100);
+        Zestaw1.zadanie16(200);
 
 
     }

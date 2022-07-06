@@ -4,6 +4,7 @@ import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
 import java.awt.*;
+import java.math.BigInteger;
 import java.util.*;
 
 import static java.lang.Math.round;
@@ -276,7 +277,7 @@ public class Zestaw1 {
     }
 
     public static void zadanie12(int num) {
-        int sum = 0, digit;
+        long sum = 0, digit;
         for (int i = 0; i <= 1000000; i++) {
             digit = i % 10;
             if (digit == num) {
@@ -302,7 +303,7 @@ public class Zestaw1 {
         System.out.println(integers);
     }
 
-    public static void zadanie14(){
+    public static void zadanie14() {
         ArrayList<Integer> integers = new ArrayList<Integer>();
         for (int i = 0; i <= 100; i++) {
             if (i % 3 == 0 || i % 5 == 0) {
@@ -315,16 +316,40 @@ public class Zestaw1 {
 
     }
 
-    public static void zadanie15(int num){
+    public static void zadanie15(int scope) {
         ArrayList<Integer> integers = new ArrayList<Integer>();
-        for(int i =2;i<num; i++){
-            if(i %num/2 ==0){
+        int num;
+        for (int i = 1; i <= scope; i++) {
+            int counter = 0;
+            for (num = i; num >= 1; num--) {
+                if (i % num == 0) {
+                    counter += 1;
+                }
+
+            }
+
+            if (counter == 2) {
                 integers.add(i);
             }
 
         }
 
         System.out.println(integers);
+    }
+
+    public static void zadanie16(int num){
+        BigInteger num1 = BigInteger.valueOf(0);
+        BigInteger num2 = BigInteger.valueOf(1);
+        int counter=0;
+        while(counter<num){
+            BigInteger num3 = num2.add(num1);
+            num1=num2;
+            num2=num3;
+
+            System.out.println(num3 + " ");
+            counter+=1;
+        }
+
     }
 
 
