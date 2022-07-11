@@ -95,7 +95,7 @@ public class ZestawString {
         return temp == sum;
 
     }
-
+// \\s+ - matches one or more whitespaces
     public static boolean zadanie30a(String word){
         String clean = word.replaceAll("\\s+", "").toLowerCase();
         int length = clean.length();

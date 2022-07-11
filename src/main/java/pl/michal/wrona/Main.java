@@ -16,7 +16,8 @@ public class Main {
         Zestaw1.zadanie3(4);
         Zestaw1.zadanie4(4);
         Zestaw1.zadanie5("Moje", "Bylo");
-        System.out.println(Zestaw1.zadanie6(6));
+        System.out.println(Zestaw1.zadanie6(3));
+        System.out.println(Zestaw1.zadanie6a("MCMIV"));
         System.out.println(Zestaw1.zadanie7(1011110000));
         System.out.println(Zestaw1.zadanie7a(50));
         System.out.println(Zestaw1.zadanie7b(96));
@@ -31,8 +32,8 @@ public class Main {
         Zestaw1.zadanie12(5);
         Zestaw1.zadanie13();
         Zestaw1.zadanie14();
-        Zestaw1.zadanie15(100);
-        Zestaw1.zadanie16(200);
+//        Zestaw1.zadanie15(100);
+//        Zestaw1.zadanie16(200);
 
 
     }

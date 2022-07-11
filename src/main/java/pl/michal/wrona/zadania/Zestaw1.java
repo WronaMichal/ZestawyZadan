@@ -82,7 +82,14 @@ public class Zestaw1 {
     }
 
     //używasz tutaj Treemap i recursion (funkcja sama siebie woła)
-
+//  The floorKey() method is used to return the greatest key less than or equal to given key from the parameter.
+    // zadanie6(number - l) -> to nam gwarantuje, że zawsze dostaniemy różnicę między wpisaną liczbą a znalezioną przez
+    // map.floorKey metodę. Ta metoda znajduje albo równą albo mniejszą wartość key w mapie.
+    // if (number == l) {
+    //            return map.get(number);
+    //        }
+    // ten kod omija błąd jaki będzie wyskakiwał kiedy number ==l ponieważ treemap nie może mieć key o
+    // wartości null (zero)
     public static String zadanie6(int number) {
         TreeMap<Integer, String> map = new TreeMap<Integer, String>();
         map.put(1000, "M");
@@ -107,26 +114,33 @@ public class Zestaw1 {
 
     }
 
-//    public static String zadanie6a(int number){
-//        TreeMap<String, Integer> map = new TreeMap<String, Integer>();
-//        map.put("M", 1000);
-//        map.put("CM", 900);
-//        map.put("D", 500);
-//        map.put("CD", 400);
-//        map.put("C", 100);
-//        map.put("XC", 90);
-//        map.put("L", 50);
-//        map.put("XL", 40);
-//        map.put("X", 10);
-//        map.put("IX", 9);
-//        map.put("V", 5);
-//        map.put("IV", 4);
-//        map.put("I", 1);
-//        int l = Integer.parseInt(map.floorKey(String.valueOf(number)));
-//        if ( number == l ) {
-//            return map.get(number);
-//        }
-//        return map.get(l) + zadanie6(number-l);
+    public static int zadanie6a(String letter) {
+        TreeMap<Character, Integer> map = new TreeMap<Character, Integer>();
+        map.put('M', 1000);
+        map.put('D', 500);
+        map.put('C', 100);
+        map.put('L', 50);
+        map.put('X', 10);
+        map.put('V', 5);
+        map.put('I', 1);
+        int sum = 0;
+        int n = letter.length();
+
+        for (int i = 0; i < n; i++) {
+            if (i != n - 1 && map.get(letter.charAt(i)) <
+                    map.get(letter.charAt(i + 1))) {
+                sum += map.get(letter.charAt(i + 1)) -
+                        map.get(letter.charAt(i));
+                i++;
+            } else {
+                sum += map.get(letter.charAt(i));
+            }
+        }
+        return sum;
+    }
+
+
+
 
     public static String zadanie7(long num) {
         int decimalNumber = 0, i = 0;
