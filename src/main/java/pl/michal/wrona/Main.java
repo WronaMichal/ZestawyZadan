@@ -1,6 +1,7 @@
 package pl.michal.wrona;
 
 import pl.michal.wrona.zadania.Zestaw1;
+import pl.michal.wrona.zadania.Zestaw2;
 import pl.michal.wrona.zadania.ZestawString;
 
 public class Main {
@@ -34,6 +35,7 @@ public class Main {
         Zestaw1.zadanie14();
 //        Zestaw1.zadanie15(100);
 //        Zestaw1.zadanie16(200);
+        System.out.println(Zestaw2.zadanie1(13,156,3490));
 
 
     }
