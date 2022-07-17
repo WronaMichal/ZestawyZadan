@@ -4,9 +4,12 @@ import pl.michal.wrona.zadania.Zestaw1;
 import pl.michal.wrona.zadania.Zestaw2;
 import pl.michal.wrona.zadania.ZestawString;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         ZestawString.zadanie28("wo1r5-.ss,,d");
         System.out.println(ZestawString.zadanie29("Programowanie", 4));
         System.out.println(ZestawString.zadanie30(454));
@@ -35,8 +38,21 @@ public class Main {
         Zestaw1.zadanie14();
 //        Zestaw1.zadanie15(100);
 //        Zestaw1.zadanie16(200);
-        System.out.println(Zestaw2.zadanie1(13,156,3490));
-
+        Zestaw2.zadanie1(13,156,3490);
+        Zestaw2.zadanie2(240);
+        Zestaw2.zadanie3(15,5);
+        System.out.println(Zestaw2.zadanie4(3,2,4));
+        Zestaw2.zadanie5(3,2);
+//        Zestaw2.zadanie6();
+//        Zestaw2.zadanie7(5);
+        int matrix1[][]  = {{2,5,4},{5,1,7}};
+        int matrix2[][]  = {{8,3,10},{11,6,12}};
+        Zestaw2.zadanie8(matrix1,matrix2);
+        Zestaw2.zadanie9(matrix1,matrix2);
+        Zestaw2.zadanie10(matrix1,matrix2);
+        Zestaw2.zadanie11(matrix1,3);
+        Zestaw2.zadanie12(matrix1);
+        Zestaw2.zadanie13(matrix1);
 
     }
 }
