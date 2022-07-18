@@ -248,6 +248,8 @@ public class Zestaw2 {
     public static void zadanie13(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
         List<Integer> newList = new ArrayList<>();
+        int count = 1;
+        int ans = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 list.add(matrix[i][j]);
@@ -263,22 +265,83 @@ public class Zestaw2 {
                 }
             }
         }
+        newList.add(list.get(0));
         // Remove duplicates
         for (int i = 1; i < list.size(); i++) {
             if (list.get(i) != list.get(i - 1)) {
-                newList.add(i);
+                newList.add(list.get(i));
             }
         }
+//        Longest consecutive sequence
+        for (int i = 1; i < newList.size(); i++) {
+            if (newList.get(i) == newList.get(i - 1) + 1) {
+                count++;
+            }
+            else{
+                count=1;
+            }
+
+            ans = Math.max(ans,count);
+
+        }
+        System.out.println("Longest consecutive sequence: " + ans);
+    }
+
+    public static void zadanie14(int[][] matrix){
+        List<Integer> list = new ArrayList<>();
+        List<Integer> newList = new ArrayList<>();
+        int count = 1;
+        int ans = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                list.add(matrix[i][j]);
+            }
+        }
+        //Sort the array
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i) < list.get(j)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(i));
+                    list.set(i, temp);
+                }
+            }
+        }
+        newList.add(list.get(0));
+        // Remove duplicates
         for (int i = 1; i < list.size(); i++) {
-            if (list.get(i) - list.get(i - 1) == 1) {
-//                newList.add(list.get(i));
-//                newList.add(list.get(i + 1));
+            if (list.get(i) != list.get(i - 1)) {
+                newList.add(list.get(i));
+            }
+        }
+
+        System.out.println("Longest descending streak: " + newList.size());
+    }
+
+    public static void zadanie15(int[]array){
+        int[]array2 = new int[array.length/2];
+        System.out.println(array.length);
+        for (int i=0, k=0; i <array.length; i++){
+            if(i%2 ==0){
+                continue;
             }
 
-
-//        System.out.println(list);
-//        System.out.println(newList);
+            array2[k++] = array[i];
         }
+
+        for (int i = 0; i < array2.length; i++) {
+            for (int j = i + 1; j < array2.length; j++) {
+                if (array2[i] > array2[j]) {
+                    int temp = array2[j];
+                    array2[j] = array2[i];
+                    array2[i] = temp;
+                }
+            }
+        }
+
+        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(array2));
+
     }
 }
 
