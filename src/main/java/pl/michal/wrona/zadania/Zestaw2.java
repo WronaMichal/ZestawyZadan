@@ -7,8 +7,8 @@ import java.util.*;
 public class Zestaw2 {
 
     public static void zadanie1(int num1, int num2, int num3) {
-        int sumfirst = 0;
-        int sumlast = 0;
+        int sumfirst;
+        int sumlast;
         String s1 = String.valueOf(num1);
         String s2 = String.valueOf(num2);
         String s3 = String.valueOf(num3);
@@ -18,10 +18,8 @@ public class Zestaw2 {
         char lastnum1 = s1.charAt(s1.length() - 1);
         char lastnum2 = s2.charAt(s2.length() - 1);
         char lastnum3 = s3.charAt(s3.length() - 1);
-        sumfirst = Character.getNumericValue(firstnum1) + Character.getNumericValue(firstnum2) +
-                Character.getNumericValue(firstnum3);
-        sumlast = Character.getNumericValue(lastnum1) + Character.getNumericValue(lastnum2) +
-                Character.getNumericValue(lastnum3);
+        sumfirst = Character.getNumericValue(firstnum1) + Character.getNumericValue(firstnum2) + Character.getNumericValue(firstnum3);
+        sumlast = Character.getNumericValue(lastnum1) + Character.getNumericValue(lastnum2) + Character.getNumericValue(lastnum3);
 
         System.out.println("Sum of first " + sumfirst + " Sum of last " + sumlast);
 
@@ -43,7 +41,7 @@ public class Zestaw2 {
 
     public static void zadanie3(int num1, int num2) {
         int gcd = 1;
-        int lcm = 1;
+        int lcm;
         for (int i = 1; i <= num1 && i <= num2; i++) {
             if (num1 % i == 0 && num2 % i == 0) {
                 gcd = i;
@@ -61,11 +59,7 @@ public class Zestaw2 {
     }
 
     public static boolean zadanie4(int a, int b, int c) {
-        if (a + b > c && b + c > a && a + c > b) {
-            return true;
-        } else {
-            return false;
-        }
+        return a + b > c && b + c > a && a + c > b;
 
     }
 
@@ -96,7 +90,7 @@ public class Zestaw2 {
         Scanner sc = new Scanner(System.in);
         int[][] arr = new int[3][3];
 
-        int i, j, x, y, z, determinant = 0;
+        int i, j, x, y, z, determinant;
 
         System.out.println("\n Please Enter the Matrix Items :  ");
         for (i = 0; i < 3; i++) {
@@ -121,7 +115,7 @@ public class Zestaw2 {
         int rows = sc.nextInt();
         int columns = sc.nextInt();
         System.out.println("Enter matrix elements");
-        int matrix[][] = new int[rows][columns];
+        int[][] matrix = new int[rows][columns];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -148,7 +142,7 @@ public class Zestaw2 {
     public static void zadanie8(int[][] matrix1, int[][] matrix2) {
         int size1 = matrix1.length;
         int size2 = matrix2[0].length;
-        int matrix3[][] = new int[size1][size2];
+        int[][] matrix3 = new int[size1][size2];
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1[i].length; j++) {
                 matrix3[i][j] = matrix1[i][j] + matrix2[i][j];
@@ -166,7 +160,7 @@ public class Zestaw2 {
     public static void zadanie9(int[][] matrix1, int[][] matrix2) {
         int size1 = matrix1.length;
         int size2 = matrix2[0].length;
-        int matrix3[][] = new int[size1][size2];
+        int[][] matrix3 = new int[size1][size2];
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1[i].length; j++) {
                 matrix3[i][j] = matrix1[i][j] - matrix2[i][j];
@@ -184,7 +178,7 @@ public class Zestaw2 {
     public static void zadanie10(int[][] matrix1, int[][] matrix2) {
         int size1 = matrix1.length;
         int size2 = matrix2[0].length;
-        int matrix3[][] = new int[size1][size2];
+        int[][] matrix3 = new int[size1][size2];
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1[i].length; j++) {
                 matrix3[i][j] = matrix1[i][j] * matrix2[i][j];
@@ -200,7 +194,7 @@ public class Zestaw2 {
     }
 
     // nie wiem jak dobrze posortować ArraList, dlatego użyłem funkcji sort z Collections
-    public static void zadanie11(int matrix[][], int n) {
+    public static void zadanie11(int[][] matrix, int n) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
@@ -227,7 +221,7 @@ public class Zestaw2 {
         System.out.println(n + " highest elements of the list are " + list_n);
     }
 
-    public static void zadanie12(int matrix[][]) {
+    public static void zadanie12(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
         int sum = 0;
         int average;
@@ -251,7 +245,7 @@ public class Zestaw2 {
 
     }
 
-    public static void zadanie13(int matrix[][]) {
+    public static void zadanie13(int[][] matrix) {
         List<Integer> list = new ArrayList<>();
         List<Integer> newList = new ArrayList<>();
         for (int i = 0; i < matrix.length; i++) {
@@ -259,20 +253,32 @@ public class Zestaw2 {
                 list.add(matrix[i][j]);
             }
         }
-
+        //Sort the array
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size() - 1; j++) {
-                if (list.get(j) == list.get(j + 1) + 1) {
-                    ;
-                    newList.add(j + 1);
-                    if (list.get(j + 1) == list.size()) {
-                        break;
-                    }
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i) > list.get(j)) {
+                    int temp = list.get(j);
+                    list.set(j, list.get(i));
+                    list.set(i, temp);
                 }
             }
         }
+        // Remove duplicates
+        for (int i = 1; i < list.size(); i++) {
+            if (list.get(i) != list.get(i - 1)) {
+                newList.add(i);
+            }
+        }
+        for (int i = 1; i < list.size(); i++) {
+            if (list.get(i) - list.get(i - 1) == 1) {
+//                newList.add(list.get(i));
+//                newList.add(list.get(i + 1));
+            }
 
-        System.out.println(newList);
+
+//        System.out.println(list);
+//        System.out.println(newList);
+        }
     }
 }
 

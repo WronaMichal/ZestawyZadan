@@ -45,8 +45,8 @@ public class Main {
         Zestaw2.zadanie5(3,2);
 //        Zestaw2.zadanie6();
 //        Zestaw2.zadanie7(5);
-        int matrix1[][]  = {{2,5,4},{5,1,7}};
-        int matrix2[][]  = {{8,3,10},{11,6,12}};
+        int matrix1[][]  = {{2,5,4,6},{5,1,7,8}};
+        int matrix2[][]  = {{8,3,10,9},{11,6,12,8}};
         Zestaw2.zadanie8(matrix1,matrix2);
         Zestaw2.zadanie9(matrix1,matrix2);
         Zestaw2.zadanie10(matrix1,matrix2);
