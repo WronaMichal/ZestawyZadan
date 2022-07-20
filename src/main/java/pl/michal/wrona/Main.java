@@ -2,9 +2,12 @@ package pl.michal.wrona;
 
 import pl.michal.wrona.zadania.Zestaw1;
 import pl.michal.wrona.zadania.Zestaw2;
+import pl.michal.wrona.zadania.Zestaw3;
 import pl.michal.wrona.zadania.ZestawString;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
@@ -47,6 +50,7 @@ public class Main {
         int[][] matrix1 = {{2,1,14,13},{4,3,15,6}};
         int[][] matrix2 = {{8,3,10,9},{11,6,12,8}};
         int[] array = {1,5,79,2,2,6};
+        ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(5,6,1,8,9));
         Zestaw2.zadanie8(matrix1,matrix2);
         Zestaw2.zadanie9(matrix1,matrix2);
         Zestaw2.zadanie10(matrix1,matrix2);
@@ -55,6 +59,8 @@ public class Main {
         Zestaw2.zadanie13(matrix1);
         Zestaw2.zadanie14(matrix1);
         Zestaw2.zadanie15(array);
+        Zestaw3.zadanie1(array2);
+        Zestaw3.zadanie2("aaaabbbbcccccddddeeee");
 
     }
 }
