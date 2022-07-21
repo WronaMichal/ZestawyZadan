@@ -43,28 +43,6 @@ public class Zestaw3 {
         int length = word.length();
         StringBuilder sb = new StringBuilder();
         int count = 0;
-
-        for (int i = 0; i < length; i++) {
-            if (i == length - 1) {
-                sb.append(word.charAt(i)).append(count);
-                break;
-            }
-            if (word.charAt(i) == word.charAt(i + 1)) {
-                count++;
-            } else {
-                sb.append(word.charAt(i)).append(count);
-                count = 1;
-            }
-        }
-
-        System.out.println(sb);
-
-    }
-
-    public static void zadanie3(String word) {
-        int length = word.length();
-        StringBuilder sb = new StringBuilder();
-        int count = 0;
         for (int i = 0; i < length; i++) {
             switch (word.charAt(i)) {
                 case '1':
